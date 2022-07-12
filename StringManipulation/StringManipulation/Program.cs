@@ -6,7 +6,8 @@ static void Main()
 {
     //StringConversion();
     //StringAsArray();
-    EscapeString();
+    //EscapeString();
+    //AppendingStrings();
 }
 
 static void StringConversion()
@@ -52,4 +53,24 @@ static void EscapeString()
 
     mg = @"C:\mycomputer\project.";
     Console.WriteLine(mg);
+
+    mg = "This is the last, i promess"; 
+    Console.WriteLine(mg);
+}// String Literal
+
+static void AppendingStrings()
+{
+    string name = "Danilo";
+    string lastName = "Borges";
+
+    string result;
+
+    result = name + ", my name is" + " " + name + " " + lastName + ".";
+    Console.WriteLine(result);
+
+    result = string.Format("{0}, my name is {0} {1}.", name, lastName);
+    Console.WriteLine(result);
+
+    result = $"{name}, my name is {name} {lastName}.";
+    Console.WriteLine(result);
 }

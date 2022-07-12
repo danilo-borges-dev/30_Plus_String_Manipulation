@@ -13,7 +13,8 @@ static void Main()
     //StringInterpolationAndLiteral();
     //StringBuilderDemo();
     //WorkingsArrays();
-    PadAndTrim();
+    //PadAndTrim();
+    SearchingStrings();
 }
 
 static void StringConversion()
@@ -170,6 +171,44 @@ static void PadAndTrim()
 
     result = test.PadRight(5, '0');
     Console.WriteLine(result);
+}
 
+static void SearchingStrings()
+{
+    string testString = "This is a test of the search. Let's see how its testing works out.";
+    bool resultsBoolean;
+    int resultsInt;
 
+    resultsBoolean = testString.StartsWith("This is a test"); // A string testString inicia com o valor de string passado por parâmetro? Se sim teremos como retorno true, senão teremos como retorno false.
+    Console.WriteLine($"Starts with \"This is a test\" : {resultsBoolean}");
+
+    resultsBoolean = testString.EndsWith("works out.");
+    Console.WriteLine($"Ends with \"works out.\" : {resultsBoolean}");
+
+    resultsBoolean = testString.EndsWith("works out"); // Aqui teremos como retorno false, porque esqueci propositalmente o ponto "." no final.
+    Console.WriteLine($"Ends with \"works out.\" : {resultsBoolean}");
+
+    resultsBoolean = testString.Contains("of the search"); 
+    Console.WriteLine($"Contains \"of the search\" : {resultsBoolean}");
+
+    resultsInt = testString.IndexOf("of");
+    Console.WriteLine($"Index \"of\" {resultsInt}");
+
+    resultsInt = testString.IndexOf("of", 21);  //  Aqui nós temos como retorno -1, porque não existe um grupo de caractere of após o index 21
+    Console.WriteLine($"Index \"of\" after caracter 21 {resultsInt}");
+
+    resultsInt = testString.LastIndexOf("of");  
+    Console.WriteLine($"Last Index \"of\" {resultsInt}");
+
+    resultsInt = testString.LastIndexOf("of", 50);
+    Console.WriteLine($"Last Index \"of\" {resultsInt}");
+
+    Console.WriteLine();
+
+    int i = 0;
+    while (testString.IndexOf("test", i) > -1)
+    {
+        Console.WriteLine($"Position {i} = {testString[i]}");
+        i++;
+    }
 }

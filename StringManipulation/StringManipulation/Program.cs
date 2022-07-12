@@ -4,7 +4,8 @@ Main();
 
 static void Main()
 {
-    StringConversion();
+    //StringConversion();
+    StringAsArray();
 }
 
 static void StringConversion()
@@ -26,4 +27,14 @@ static void StringConversion()
     result = russTextInfo.ToTitleCase(testString);
     Console.WriteLine(result);
 
+}
+
+static void StringAsArray()
+{
+    string name = "Danilo";
+
+    for (int i = 0; i < name.Length; i++)
+    {
+        Console.WriteLine(name[i]);
+    }
 }

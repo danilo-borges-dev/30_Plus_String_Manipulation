@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics;
+using System.Globalization;
+using System.Text;
 
 Main();
 
@@ -8,7 +10,8 @@ static void Main()
     //StringAsArray();
     //EscapeString();
     //AppendingStrings();
-    StringInterpolationAndLiteral();
+    //StringInterpolationAndLiteral();
+    StringBuilderDemo();
 }
 
 static void StringConversion()
@@ -82,4 +85,36 @@ static void StringInterpolationAndLiteral()
     string result = @$"C:\demo\{name}\{"\""}folder{"\""}\.";
 
     Console.WriteLine(result);
+}
+
+static void StringBuilderDemo()
+{
+    Stopwatch regularStopwach = new();
+    regularStopwach.Start();
+
+    string test = ""; // É ideal não incializar uma variável de string com algum valor
+
+    for (int i = 0; i < 100_000; i++)
+    {
+        test += 1;
+    }
+
+    regularStopwach.Stop();
+
+    Console.WriteLine($"Tempo para realizar a rotina {regularStopwach.ElapsedMilliseconds}ms");
+
+    Console.WriteLine();
+
+    regularStopwach.Start();
+
+    StringBuilder sb = new();
+
+    for (int i = 0; i < 100_000; i++)
+    {
+        sb.Append(i);
+    }
+
+    regularStopwach.Stop();
+
+    Console.WriteLine($"Tempo para realizar a rotina com StringBuilder {regularStopwach.ElapsedMilliseconds}ms");
 }

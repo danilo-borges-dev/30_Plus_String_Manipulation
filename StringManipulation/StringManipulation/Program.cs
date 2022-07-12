@@ -5,7 +5,8 @@ Main();
 static void Main()
 {
     //StringConversion();
-    StringAsArray();
+    //StringAsArray();
+    EscapeString();
 }
 
 static void StringConversion()
@@ -37,4 +38,18 @@ static void StringAsArray()
     {
         Console.WriteLine(name[i]);
     }
+}
+
+static void EscapeString()
+{
+    string mg;
+
+    mg = "This is my \"test\" solution";
+    Console.WriteLine(mg);
+
+    mg = "This is my \\new\\ test solution";
+    Console.WriteLine(mg);
+
+    mg = @"C:\mycomputer\project.";
+    Console.WriteLine(mg);
 }

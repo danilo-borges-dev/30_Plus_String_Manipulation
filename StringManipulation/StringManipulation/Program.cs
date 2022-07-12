@@ -11,7 +11,8 @@ static void Main()
     //EscapeString();
     //AppendingStrings();
     //StringInterpolationAndLiteral();
-    StringBuilderDemo();
+    //StringBuilderDemo();
+    WorkingsArrays();
 }
 
 static void StringConversion()
@@ -117,4 +118,33 @@ static void StringBuilderDemo()
     regularStopwach.Stop();
 
     Console.WriteLine($"Tempo para realizar a rotina com StringBuilder {regularStopwach.ElapsedMilliseconds}ms");
+}
+
+static void WorkingsArrays()
+{
+    int[] number = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+    string result;
+
+    result = String.Concat(number);
+
+    Console.WriteLine(result);
+    Console.WriteLine(result.Length);
+
+    Console.WriteLine();
+
+    result = String.Join(", ", number);
+
+    Console.WriteLine(result);
+    Console.WriteLine(result[0]);
+    Console.WriteLine(result[1]);
+    Console.WriteLine(result.Length);
+
+    Console.WriteLine();
+
+    string names = "Danilo, Joana, Marques, Jhony, Natália, Michelle, Bruna, Daniele";
+
+    string[] namesInArrays = names.Split(',');
+
+    Array.ForEach(namesInArrays, x => Console.WriteLine(x));
 }

@@ -12,7 +12,8 @@ static void Main()
     //AppendingStrings();
     //StringInterpolationAndLiteral();
     //StringBuilderDemo();
-    WorkingsArrays();
+    //WorkingsArrays();
+    PadAndTrim();
 }
 
 static void StringConversion()
@@ -147,4 +148,28 @@ static void WorkingsArrays()
     string[] namesInArrays = names.Split(',');
 
     Array.ForEach(namesInArrays, x => Console.WriteLine(x));
+}
+
+static void PadAndTrim()
+{
+    string test = "    Helo World!  ";
+
+    string result = test.TrimStart();
+    Console.WriteLine($"'{result}'");
+
+    result = test.TrimEnd();
+    Console.WriteLine($"'{result}'");
+
+    result = test.Trim();
+    Console.WriteLine($"'{result}'");
+
+    test = "1.50";
+
+    result = test.PadLeft(5, '0');
+    Console.WriteLine(result);
+
+    result = test.PadRight(5, '0');
+    Console.WriteLine(result);
+
+
 }

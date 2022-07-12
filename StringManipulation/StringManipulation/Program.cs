@@ -8,6 +8,7 @@ static void Main()
     //StringAsArray();
     //EscapeString();
     //AppendingStrings();
+    StringInterpolationAndLiteral();
 }
 
 static void StringConversion()
@@ -72,5 +73,13 @@ static void AppendingStrings()
     Console.WriteLine(result);
 
     result = $"{name}, my name is {name} {lastName}.";
+    Console.WriteLine(result);
+}
+
+static void StringInterpolationAndLiteral()
+{
+    string name = "Danilo";
+    string result = @$"C:\demo\{name}\{"\""}folder{"\""}\.";
+
     Console.WriteLine(result);
 }

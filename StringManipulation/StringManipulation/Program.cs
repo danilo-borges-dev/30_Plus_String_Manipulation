@@ -6,6 +6,7 @@ Main();
 
 static void Main()
 {
+    Console.WriteLine();
     //StringConversion();
     //StringAsArray();
     //EscapeString();
@@ -14,7 +15,8 @@ static void Main()
     //StringBuilderDemo();
     //WorkingsArrays();
     //PadAndTrim();
-    SearchingStrings();
+    //SearchingStrings();
+    OrderingString();
 }
 
 static void StringConversion()
@@ -61,7 +63,7 @@ static void EscapeString()
     mg = @"C:\mycomputer\project.";
     Console.WriteLine(mg);
 
-    mg = "This is the last, i promess"; 
+    mg = "This is the last, i promess";
     Console.WriteLine(mg);
 }// String Literal
 
@@ -188,7 +190,7 @@ static void SearchingStrings()
     resultsBoolean = testString.EndsWith("works out"); // Aqui teremos como retorno false, porque esqueci propositalmente o ponto "." no final.
     Console.WriteLine($"Ends with \"works out.\" : {resultsBoolean}");
 
-    resultsBoolean = testString.Contains("of the search"); 
+    resultsBoolean = testString.Contains("of the search");
     Console.WriteLine($"Contains \"of the search\" : {resultsBoolean}");
 
     resultsInt = testString.IndexOf("of");
@@ -197,7 +199,7 @@ static void SearchingStrings()
     resultsInt = testString.IndexOf("of", 21);  //  Aqui nós temos como retorno -1, porque não existe um grupo de caractere of após o index 21
     Console.WriteLine($"Index \"of\" after caracter 21 {resultsInt}");
 
-    resultsInt = testString.LastIndexOf("of");  
+    resultsInt = testString.LastIndexOf("of");
     Console.WriteLine($"Last Index \"of\" {resultsInt}");
 
     resultsInt = testString.LastIndexOf("of", 50);
@@ -210,5 +212,34 @@ static void SearchingStrings()
     {
         Console.WriteLine($"Position {i} = {testString[i]}");
         i++;
+    }
+}
+
+static void OrderingString()
+{
+    CompareToHelper("Mary", "Bob");
+    CompareToHelper("Mary", null);
+    CompareToHelper("Adam", "Bob");
+    CompareToHelper("Bob", "Bob");
+
+    Console.WriteLine();
+
+
+}
+
+static void CompareToHelper(string testA, string? testB)
+{
+    int resultsInt = testA.CompareTo(testB);
+    switch (resultsInt)
+    {
+        case > 0:
+            Console.WriteLine($"CompareTo: {testB ?? "null"} comes before {testA}");
+            break;
+        case < 0:
+            Console.WriteLine($"CompareTo: {testA} comes before {testB}");
+            break;
+        case 0:
+            Console.WriteLine($"CompareTo: {testA} is the same as {testB}");
+            break;
     }
 }

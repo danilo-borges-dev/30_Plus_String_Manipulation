@@ -19,7 +19,9 @@ static void Main()
     //OrderingString();
     //TestEquality();
     //GettingASubstring();
-    ReplacingText();
+    //ReplacingText();
+    //IsertingText();
+    RemovingText();
 
 }
 
@@ -170,6 +172,9 @@ static void PadAndTrim()
     result = test.Trim();
     Console.WriteLine($"'{result}'");
 
+    result = "a a a";
+    Console.WriteLine(result.Trim());
+
     test = "1.50";
 
     result = test.PadLeft(5, '0');
@@ -200,7 +205,7 @@ static void SearchingStrings()
     resultsInt = testString.IndexOf("of");
     Console.WriteLine($"Index \"of\" {resultsInt}");
 
-    resultsInt = testString.IndexOf("of", 21);  //  Aqui nós temos como retorno -1, porque não existe um grupo de caractere of após o index 21
+    resultsInt = testString.IndexOf("of", 21);  //  Aqui nós temos como retorno -1, porque não existe um grupo de caractere 'of' após o index 21
     Console.WriteLine($"Index \"of\" after caracter 21 {resultsInt}");
 
     resultsInt = testString.LastIndexOf("of");
@@ -347,6 +352,8 @@ static void EqualityEqualsEquals(string? testA, string? testB) // Não é recome
 
 static void GettingASubstring()
 {
+    // Remove uma parte da string e armazena em uma variável, sendo o primeiro parâmetro a posição
+    // do caractere [inicial excludente] e o segundo parâmetro o último indice a ser capturado/recortado
     Console.WriteLine("This is a test of substring. Let's see how its testing works out.");
     string testString = "This is a test of substring. Let's see how its testing works out.";
     string results;
@@ -373,5 +380,26 @@ static void ReplacingText()
     Console.WriteLine();
     Console.WriteLine("This is a test of replace. Let's see how is testing works out.");
     results = testString.Replace(" TEST ", "...", StringComparison.InvariantCultureIgnoreCase);
+    Console.WriteLine(results);
+}
+
+static void IsertingText()
+{
+    string testString = "This is test of isert. Let's see how is testing works out for test.";
+    string results;
+
+    results = testString.Insert(5, "(test)");
+    Console.WriteLine(results);
+}
+
+static void RemovingText()
+{
+    string testString = "This a large message. Problaly need slice a little part.";
+    string results;
+
+    results = testString.Remove(5); // Remove uma parte da string e armazena na variável
+    Console.WriteLine(results);
+
+    results = testString.Remove(25); 
     Console.WriteLine(results);
 }

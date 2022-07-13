@@ -16,7 +16,8 @@ static void Main()
     //WorkingsArrays();
     //PadAndTrim();
     //SearchingStrings();
-    OrderingString();
+    //OrderingString();
+    TestEquality();
 }
 
 static void StringConversion()
@@ -265,5 +266,78 @@ static void CompareHelper(string? testA, string? testB)
         case 0:
             Console.WriteLine($"Compare: {testA ?? "null"} is the same as {testB ?? "null"}");
             break;
+    }
+}
+
+static void TestEquality()
+{
+    EqualityHelper("Bob", "Mary");
+    EqualityHelper("Bob", "Bob");
+    EqualityHelper(null, "");
+    EqualityHelper(" ", "Mary");
+    EqualityHelper("Bob", "bob");
+
+    Console.WriteLine();
+
+    EqualityHelperIgnoreCase("Bob", "Mary");
+    EqualityHelperIgnoreCase("Bob", "Bob");
+    EqualityHelperIgnoreCase(null, "");
+    EqualityHelperIgnoreCase(" ", "Mary");
+    EqualityHelperIgnoreCase("Bob", "bob");
+
+    Console.WriteLine();
+
+    EqualityEqualsEquals("Bob", "Mary");
+    EqualityEqualsEquals("Bob", "Bob");
+    EqualityEqualsEquals(null, "");
+    EqualityEqualsEquals(" ", "Mary");
+    EqualityEqualsEquals("Bob", "bob");
+}
+
+static void EqualityHelper(string? testA, string? testB)
+{
+    bool resultsBoolean;
+
+    resultsBoolean = String.Equals(testA, testB);
+
+    if (resultsBoolean)
+    {
+        Console.WriteLine($"Equals: '{testA ?? "null"}' equals '{testB ?? "null"}'");
+    }
+    else
+    {
+        Console.WriteLine($"Equals: '{testA ?? "null"}' does not equal '{testB ?? "null"}'");
+    }   
+}
+
+static void EqualityHelperIgnoreCase(string? testA, string? testB)
+{
+    bool resultsBoolean;
+
+    resultsBoolean = String.Equals(testA, testB, StringComparison.InvariantCultureIgnoreCase);
+
+    if (resultsBoolean)
+    {
+        Console.WriteLine($"Equals (Ignore case): '{testA ?? "null"}' equals '{testB ?? "null"}'");
+    }
+    else
+    {
+        Console.WriteLine($"Equals (Ignore case): '{testA ?? "null"}' does not equal '{testB ?? "null"}'");
+    }
+}
+
+static void EqualityEqualsEquals(string? testA, string? testB) // Não é recomendado este tipo de comparação
+{
+    bool resultsBoolean;
+
+    resultsBoolean = String.Equals(testA, testB, StringComparison.InvariantCultureIgnoreCase);
+
+    if (resultsBoolean)
+    {
+        Console.WriteLine($"== : '{testA ?? "null"}' equals '{testB ?? "null"}'");
+    }
+    else
+    {
+        Console.WriteLine($"== : '{testA ?? "null"}' does not equal '{testB ?? "null"}'");
     }
 }

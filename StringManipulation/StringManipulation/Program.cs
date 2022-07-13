@@ -224,7 +224,13 @@ static void OrderingString()
 
     Console.WriteLine();
 
-
+    CompareHelper("Mary", "Bob");
+    CompareHelper("Mary", null);
+    CompareHelper("Adam", "Bob");
+    CompareHelper(null, "Bob");
+    CompareHelper("Bob", "Bob");
+    CompareHelper("Bob", "Bobby");
+    CompareHelper(null, null);
 }
 
 static void CompareToHelper(string testA, string? testB)
@@ -240,6 +246,24 @@ static void CompareToHelper(string testA, string? testB)
             break;
         case 0:
             Console.WriteLine($"CompareTo: {testA} is the same as {testB}");
+            break;
+    }
+}
+
+static void CompareHelper(string? testA, string? testB)
+{
+    int resultsInt = String.Compare(testA, testB);
+
+    switch (resultsInt)
+    {
+        case > 0:
+            Console.WriteLine($"Compare: {testB ?? "null"} comes before {testA}");
+            break;
+        case < 0:
+            Console.WriteLine($"Compare: {testA ?? "null"} comes before {testB}");
+            break;
+        case 0:
+            Console.WriteLine($"Compare: {testA ?? "null"} is the same as {testB ?? "null"}");
             break;
     }
 }

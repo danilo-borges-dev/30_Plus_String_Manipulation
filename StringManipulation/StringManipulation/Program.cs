@@ -18,7 +18,9 @@ static void Main()
     //SearchingStrings();
     //OrderingString();
     //TestEquality();
-    GettingASubstring();
+    //GettingASubstring();
+    ReplacingText();
+
 }
 
 static void StringConversion()
@@ -351,5 +353,25 @@ static void GettingASubstring()
 
     results = testString.Substring(5);
     results = testString.Substring(5, 4); // Temos como retorno: is a
+    Console.WriteLine(results);
+}
+
+static void ReplacingText()
+{
+    Console.WriteLine("This is a test of replace. Let's see how is testing works out.");
+    string testString = "This is a test of replace. Let's see how is testing works out.";
+    string results;
+
+    results = testString.Replace(".", " |--| ");
+    Console.WriteLine(results);
+
+    Console.WriteLine();
+    Console.WriteLine("This is a test of replace. Let's see how is testing works out.");
+    results = testString.Replace(" test ", "...");
+    Console.WriteLine(results);
+
+    Console.WriteLine();
+    Console.WriteLine("This is a test of replace. Let's see how is testing works out.");
+    results = testString.Replace(" TEST ", "...", StringComparison.InvariantCultureIgnoreCase);
     Console.WriteLine(results);
 }

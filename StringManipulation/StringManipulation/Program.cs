@@ -17,7 +17,8 @@ static void Main()
     //PadAndTrim();
     //SearchingStrings();
     //OrderingString();
-    TestEquality();
+    //TestEquality();
+    GettingASubstring();
 }
 
 static void StringConversion()
@@ -340,4 +341,15 @@ static void EqualityEqualsEquals(string? testA, string? testB) // Não é recome
     {
         Console.WriteLine($"== : '{testA ?? "null"}' does not equal '{testB ?? "null"}'");
     }
+}
+
+static void GettingASubstring()
+{
+    Console.WriteLine("This is a test of substring. Let's see how its testing works out.");
+    string testString = "This is a test of substring. Let's see how its testing works out.";
+    string results;
+
+    results = testString.Substring(5);
+    results = testString.Substring(5, 4); // Temos como retorno: is a
+    Console.WriteLine(results);
 }
